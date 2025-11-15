@@ -4,9 +4,7 @@ const doc = {
   info: {
     title: "Music API",
     description: "API to manage songs"
-  },
-    host: "localhost:3000",
-  schemes: ["http", "https"]
+  }
 };
 
 const outputFile = "./swagger-output.json";
