@@ -4,7 +4,7 @@ const ObjectId = require("mongodb").ObjectId;
 const getAll = async (req, res) => {
     //#swagger.tags=["songs"]
     //#swagger.summary = Get all songs 
-    //#swagger.responses (200) Lists all songs - schema => _id, title, 
+    //#swagger.responses[200] Lists all songs - schema => _id, title, 
     // composer, genre, isrc, artists, release Date, Record Label
     const result = await mongodb.getDatabase().db().collection("songs").find();
         result.toArray().then((songs) => {
@@ -16,7 +16,7 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
     //#swagger.tags=["songs"]
     //#swagger.summary = get a single song - must know the _id
-    //#swagger.responses (200) - lists the one song  schema => _id, title, 
+    //#swagger.responses[200] - lists the one song  schema => _id, title, 
     // composer, genre, isrc, artists, release Date, Record Label
     const songId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db().collection("songs").find({ _id: songId });
@@ -29,7 +29,7 @@ const getSingle = async (req, res) => {
 const createSong = async (req, res) => {
     //#swagger.tags=["songs"]
     //#swagger.summary = creates song and add to database 
-    //#swagger.responses (204)
+    //#swagger.responses[204]
     const song = {
         title: req.body.title,
         composer: req.body.composer,
@@ -50,7 +50,7 @@ const createSong = async (req, res) => {
 const updateSong = async (req, res) => {
     //#swagger.tags=["songs"]
     //#swagger.summary = updates song
-    //#swagger.responses (204)
+    //#swagger.responses[204]
     const songId = new ObjectId(req.params.id);
     const song = {
         title: req.body.title,
@@ -72,7 +72,7 @@ const updateSong = async (req, res) => {
 const deleteSong = async (req, res) => {
     //#swagger.tags=["songs"]
     //#swagger.summary = delete songs 
-    //#swagger.responses (204)
+    //#swagger.responses[204]
     const songId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection("songs").deleteOne({ _id: songId });
     if (response.deletedCount > 0) {
