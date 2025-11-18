@@ -40,7 +40,7 @@ const createAlbum = async (req, res) => {
     //#swagger.summary = creates album and add to database 
     //#swagger.responses[201]
     if (!req.body.albumTitle?.trim() || !req.body.upc?.trim()) {
-        return res.status(400).json({ message: "albumTitle and upc are required" });
+        return res.status(400).json({ message: "Album Title and upc are required" });
     }
     try {
         const album = {
@@ -72,7 +72,7 @@ const updateAlbum = async (req, res) => {
     }
 
     if (!req.body.albumTitle?.trim() || !req.body.upc?.trim()) {
-    return res.status(400).json({ message: "albumTitle and upc are required" });
+    return res.status(400).json({ message: "Album Title and upc are required" });
 }
 
     try {
