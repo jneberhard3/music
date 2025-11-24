@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
     res.send("Hello World");
 });
 
-router.use("/songs", require("./music"));
+router.use("/songs", require("./songs"));
 router.use("/album", require("./albums"));
 
 router.get("/login", passport.authenticate("github"), (req, res) => { });
