@@ -4,7 +4,7 @@ const router = express.Router();
 const songsController = require("../controllers/songs");
 const { validateSong } = require("../utilities/validation");
 
-const { isAuthenticated } = require("../middleware/authenticate");
+const { isAuthenticated } = require("../utilities/authenticate");
 
 router.get("/", songsController.getAll);
 router.get("/:id", songsController.getSingle);

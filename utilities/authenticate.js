@@ -5,6 +5,6 @@ const isAuthenticated = (req, res, next) => {
     next();
 };
 
-modules.export = {
+module.exports = {
     isAuthenticated
 }
